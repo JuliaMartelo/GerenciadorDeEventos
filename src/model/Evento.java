@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,22 +8,22 @@ import java.util.List;
 public class Evento {
     private String titulo;
     private String endereco;
-    private Categoria categoria;
-    private Date horario;
+    private LocalDate horario;
     private String descricao;
+    private Categoria categoria;
 
 
 
     //MetodoConstrutor
-    public Evento(String titulo, String endereco,Date horario, String descricao){
+    public Evento(String titulo, String endereco,LocalDate horario, String descricao, Categoria categoria){
         this.titulo = titulo;
         this.endereco = endereco;
-        this.categoria = categoria;
         this.horario = horario;
         this.descricao = descricao;
+        this.categoria = categoria;
     }
 
-    public Evento(String titulo, String endereco, String descricao, Date horario) {
+    public Evento(String titulo, String endereco,Date horario, String descricao) {
     }
 
 
@@ -52,7 +53,7 @@ public class Evento {
     }
 
     //Getter horario
-    public Date getHorario (){
+    public LocalDate getHorario (){
         return this.horario;
     }
 

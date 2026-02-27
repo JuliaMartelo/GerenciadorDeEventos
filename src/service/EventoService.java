@@ -3,6 +3,7 @@ package service;
 import model.Categoria;
 import model.Evento;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,8 +13,8 @@ public class EventoService {
     private ArrayList<Evento> eventos = new ArrayList<>();
 
     //Cadastrando eventos
-    public void cadastrarEventos(String nome, String endereco, String descricao, Date horario, Categoria categoria){
-        Evento novoEvento = new Evento(nome,endereco,descricao,horario, categoria);
+    public void cadastrarEventos(String titulo, String endereco, String descricao, LocalDate horario, Categoria categoria){
+        Evento novoEvento = new Evento(titulo,endereco,horario,descricao, categoria);
         eventos.add(novoEvento);
 
         System.out.println("Evento cadastrado com sucesso!");

@@ -4,6 +4,7 @@ import model.Categoria;
 import service.EventoService;
 import service.UsuarioService;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -23,7 +24,7 @@ import java.util.Scanner;
         do {
             System.out.println("\n====== SISTEMA DE EVENTOS =====");
             System.out.println("1 - Cadastrar usuário");
-            System.out.println(" - Cadastrar Evento");
+            System.out.println("2 - Cadastrar Evento");
             System.out.println("3 - Listar Eventos");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
@@ -52,18 +53,22 @@ import java.util.Scanner;
                     System.out.print("Endereço: ");
                     String endereco = teclado.nextLine();
 
+                    System.out.print("Horario (dd/MM/yyyy):  ");
+                    String entrada = teclado.nextLine();
+
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate horario = LocalDate.parse(entrada, formatter);
+
                     System.out.print("Descrição: ");
                     String descricao = teclado.nextLine();
 
                     System.out.print("Categoria (SHOW, PALESTRA, WORKSHOP): ");
-                    String entrada = teclado.nextLine().toUpperCase();
+                    String Entrada = teclado.nextLine().toUpperCase();
 
-                    Categoria categoria = Categoria.valueOf(entrada);
-                    System.out.print("Categoria: ");
-                    String Categoria = teclado.nextLine();
+                    Categoria categoria = Categoria.valueOf(Entrada);
 
 
-                    eventoService.cadastrarEventos(titulo, endereco, descricao, categoria);
+                    eventoService.cadastrarEventos(titulo, endereco,descricao, horario, categoria);
                     break;
 
                 case 3:
