@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Evento {
-    private String nome;
+    private String titulo;
     private String endereco;
     private Categoria categoria;
     private Date horario;
@@ -14,22 +14,26 @@ public class Evento {
 
 
     //MetodoConstrutor
-    public Evento(String nome, String endereco, Categoria categoria, Date horario, String descricao){
-        this.nome = nome;
+    public Evento(String titulo, String endereco,Date horario, String descricao){
+        this.titulo = titulo;
         this.endereco = endereco;
         this.categoria = categoria;
         this.horario = horario;
         this.descricao = descricao;
     }
 
+    public Evento(String titulo, String endereco, String descricao, Date horario) {
+    }
+
+
     //Getter nome
     public String getNome(){
-        return this.nome;
+        return this.titulo;
     }
 
     //Setter nome
-    public void setNome (String nome){
-        this.nome = nome;
+    public void setNome (String titulo){
+        this.titulo = titulo;
     }
 
     //Getter endereco
